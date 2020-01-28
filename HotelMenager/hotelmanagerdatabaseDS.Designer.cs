@@ -26,6 +26,8 @@ namespace HotelMenager {
         
         private guestsDataTable tableguests;
         
+        private reservationsDataTable tablereservations;
+        
         private roomsDataTable tablerooms;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -59,6 +61,9 @@ namespace HotelMenager {
                 if ((ds.Tables["guests"] != null)) {
                     base.Tables.Add(new guestsDataTable(ds.Tables["guests"]));
                 }
+                if ((ds.Tables["reservations"] != null)) {
+                    base.Tables.Add(new reservationsDataTable(ds.Tables["reservations"]));
+                }
                 if ((ds.Tables["rooms"] != null)) {
                     base.Tables.Add(new roomsDataTable(ds.Tables["rooms"]));
                 }
@@ -87,6 +92,16 @@ namespace HotelMenager {
         public guestsDataTable guests {
             get {
                 return this.tableguests;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public reservationsDataTable reservations {
+            get {
+                return this.tablereservations;
             }
         }
         
@@ -170,6 +185,9 @@ namespace HotelMenager {
                 if ((ds.Tables["guests"] != null)) {
                     base.Tables.Add(new guestsDataTable(ds.Tables["guests"]));
                 }
+                if ((ds.Tables["reservations"] != null)) {
+                    base.Tables.Add(new reservationsDataTable(ds.Tables["reservations"]));
+                }
                 if ((ds.Tables["rooms"] != null)) {
                     base.Tables.Add(new roomsDataTable(ds.Tables["rooms"]));
                 }
@@ -212,6 +230,12 @@ namespace HotelMenager {
                     this.tableguests.InitVars();
                 }
             }
+            this.tablereservations = ((reservationsDataTable)(base.Tables["reservations"]));
+            if ((initTable == true)) {
+                if ((this.tablereservations != null)) {
+                    this.tablereservations.InitVars();
+                }
+            }
             this.tablerooms = ((roomsDataTable)(base.Tables["rooms"]));
             if ((initTable == true)) {
                 if ((this.tablerooms != null)) {
@@ -230,6 +254,8 @@ namespace HotelMenager {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableguests = new guestsDataTable();
             base.Tables.Add(this.tableguests);
+            this.tablereservations = new reservationsDataTable();
+            base.Tables.Add(this.tablereservations);
             this.tablerooms = new roomsDataTable();
             base.Tables.Add(this.tablerooms);
         }
@@ -237,6 +263,12 @@ namespace HotelMenager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeguests() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializereservations() {
             return false;
         }
         
@@ -305,6 +337,9 @@ namespace HotelMenager {
         public delegate void guestsRowChangeEventHandler(object sender, guestsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void reservationsRowChangeEventHandler(object sender, reservationsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void roomsRowChangeEventHandler(object sender, roomsRowChangeEvent e);
         
         /// <summary>
@@ -321,6 +356,8 @@ namespace HotelMenager {
             private global::System.Data.DataColumn columnSurname;
             
             private global::System.Data.DataColumn columnPhone;
+            
+            private global::System.Data.DataColumn columnRoomNumber;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -389,6 +426,14 @@ namespace HotelMenager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RoomNumberColumn {
+                get {
+                    return this.columnRoomNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -424,13 +469,14 @@ namespace HotelMenager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public guestsRow AddguestsRow(string Name, string Surname, int Phone) {
+            public guestsRow AddguestsRow(string Name, string Surname, int Phone, int RoomNumber) {
                 guestsRow rowguestsRow = ((guestsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         Surname,
-                        Phone};
+                        Phone,
+                        RoomNumber};
                 rowguestsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowguestsRow);
                 return rowguestsRow;
@@ -464,6 +510,7 @@ namespace HotelMenager {
                 this.columnName = base.Columns["Name"];
                 this.columnSurname = base.Columns["Surname"];
                 this.columnPhone = base.Columns["Phone"];
+                this.columnRoomNumber = base.Columns["RoomNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +524,8 @@ namespace HotelMenager {
                 base.Columns.Add(this.columnSurname);
                 this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhone);
+                this.columnRoomNumber = new global::System.Data.DataColumn("RoomNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoomNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -575,6 +624,343 @@ namespace HotelMenager {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "guestsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class reservationsDataTable : global::System.Data.TypedTableBase<reservationsRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnDateIn;
+            
+            private global::System.Data.DataColumn columnDateOut;
+            
+            private global::System.Data.DataColumn columnRoomNumber;
+            
+            private global::System.Data.DataColumn columnGuestId;
+            
+            private global::System.Data.DataColumn columnRoomType;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsDataTable() {
+                this.TableName = "reservations";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal reservationsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected reservationsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateInColumn {
+                get {
+                    return this.columnDateIn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateOutColumn {
+                get {
+                    return this.columnDateOut;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RoomNumberColumn {
+                get {
+                    return this.columnRoomNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GuestIdColumn {
+                get {
+                    return this.columnGuestId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RoomTypeColumn {
+                get {
+                    return this.columnRoomType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRow this[int index] {
+                get {
+                    return ((reservationsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event reservationsRowChangeEventHandler reservationsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event reservationsRowChangeEventHandler reservationsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event reservationsRowChangeEventHandler reservationsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event reservationsRowChangeEventHandler reservationsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddreservationsRow(reservationsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRow AddreservationsRow(System.DateTime DateIn, System.DateTime DateOut, int RoomNumber, int GuestId, string RoomType) {
+                reservationsRow rowreservationsRow = ((reservationsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        DateIn,
+                        DateOut,
+                        RoomNumber,
+                        GuestId,
+                        RoomType};
+                rowreservationsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowreservationsRow);
+                return rowreservationsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRow FindById(int Id) {
+                return ((reservationsRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                reservationsDataTable cln = ((reservationsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new reservationsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnDateIn = base.Columns["DateIn"];
+                this.columnDateOut = base.Columns["DateOut"];
+                this.columnRoomNumber = base.Columns["RoomNumber"];
+                this.columnGuestId = base.Columns["GuestId"];
+                this.columnRoomType = base.Columns["RoomType"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnDateIn = new global::System.Data.DataColumn("DateIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateIn);
+                this.columnDateOut = new global::System.Data.DataColumn("DateOut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOut);
+                this.columnRoomNumber = new global::System.Data.DataColumn("RoomNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoomNumber);
+                this.columnGuestId = new global::System.Data.DataColumn("GuestId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuestId);
+                this.columnRoomType = new global::System.Data.DataColumn("RoomType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoomType);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnDateIn.AllowDBNull = false;
+                this.columnDateOut.AllowDBNull = false;
+                this.columnRoomNumber.AllowDBNull = false;
+                this.columnGuestId.AllowDBNull = false;
+                this.columnRoomType.AllowDBNull = false;
+                this.columnRoomType.MaxLength = 65535;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRow NewreservationsRow() {
+                return ((reservationsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new reservationsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(reservationsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.reservationsRowChanged != null)) {
+                    this.reservationsRowChanged(this, new reservationsRowChangeEvent(((reservationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.reservationsRowChanging != null)) {
+                    this.reservationsRowChanging(this, new reservationsRowChangeEvent(((reservationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.reservationsRowDeleted != null)) {
+                    this.reservationsRowDeleted(this, new reservationsRowChangeEvent(((reservationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.reservationsRowDeleting != null)) {
+                    this.reservationsRowDeleting(this, new reservationsRowChangeEvent(((reservationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovereservationsRow(reservationsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                hotelmanagerdatabaseDS ds = new hotelmanagerdatabaseDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "reservationsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -964,6 +1350,115 @@ namespace HotelMenager {
                     this[this.tableguests.PhoneColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int RoomNumber {
+                get {
+                    try {
+                        return ((int)(this[this.tableguests.RoomNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Wartość z kolumny \'RoomNumber\' w tabeli \'guests\' to DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableguests.RoomNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRoomNumberNull() {
+                return this.IsNull(this.tableguests.RoomNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRoomNumberNull() {
+                this[this.tableguests.RoomNumberColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class reservationsRow : global::System.Data.DataRow {
+            
+            private reservationsDataTable tablereservations;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal reservationsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablereservations = ((reservationsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tablereservations.IdColumn]));
+                }
+                set {
+                    this[this.tablereservations.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DateIn {
+                get {
+                    return ((global::System.DateTime)(this[this.tablereservations.DateInColumn]));
+                }
+                set {
+                    this[this.tablereservations.DateInColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DateOut {
+                get {
+                    return ((global::System.DateTime)(this[this.tablereservations.DateOutColumn]));
+                }
+                set {
+                    this[this.tablereservations.DateOutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int RoomNumber {
+                get {
+                    return ((int)(this[this.tablereservations.RoomNumberColumn]));
+                }
+                set {
+                    this[this.tablereservations.RoomNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int GuestId {
+                get {
+                    return ((int)(this[this.tablereservations.GuestIdColumn]));
+                }
+                set {
+                    this[this.tablereservations.GuestIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RoomType {
+                get {
+                    return ((string)(this[this.tablereservations.RoomTypeColumn]));
+                }
+                set {
+                    this[this.tablereservations.RoomTypeColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -1034,6 +1529,40 @@ namespace HotelMenager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public guestsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class reservationsRowChangeEvent : global::System.EventArgs {
+            
+            private reservationsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRowChangeEvent(reservationsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public reservationsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1211,11 +1740,13 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Surname", "Surname");
             tableMapping.ColumnMappings.Add("Phone", "Phone");
+            tableMapping.ColumnMappings.Add("RoomNumber", "RoomNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `guests` WHERE ((`Id` = @p1) AND (`Name` = @p2) AND (`Surname` = @p3)" +
-                " AND (`Phone` = @p4))";
+                " AND (`Phone` = @p4) AND ((@p5 = 1 AND `RoomNumber` IS NULL) OR (`RoomNumber` = " +
+                "@p6)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1249,9 +1780,27 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `guests` (`Name`, `Surname`, `Phone`) VALUES (@p1, @p2, @p3)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `guests` (`Name`, `Surname`, `Phone`, `RoomNumber`) VALUES (@p1, @p2," +
+                " @p3, @p4)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1277,10 +1826,19 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             param.SourceColumn = "Phone";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `guests` SET `Name` = @p1, `Surname` = @p2, `Phone` = @p3 WHERE ((`Id` = @" +
-                "p4) AND (`Name` = @p5) AND (`Surname` = @p6) AND (`Phone` = @p7))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `guests` SET `Name` = @p1, `Surname` = @p2, `Phone` = @p3, `RoomNumber` = " +
+                "@p4 WHERE ((`Id` = @p5) AND (`Name` = @p6) AND (`Surname` = @p7) AND (`Phone` = " +
+                "@p8) AND ((@p9 = 1 AND `RoomNumber` IS NULL) OR (`RoomNumber` = @p10)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1311,15 +1869,15 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Name";
+            param.SourceColumn = "Id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1327,15 +1885,40 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Surname";
+            param.SourceColumn = "Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Surname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Phone";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -1353,7 +1936,7 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `Name`, `Surname`, `Phone` FROM `guests`";
+            this._commandCollection[0].CommandText = "SELECT `Id`, `Name`, `Surname`, `Phone`, `RoomNumber` FROM `guests`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1414,7 +1997,7 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p2, string p3, int p4) {
+        public virtual int Delete(int p1, string p2, string p3, int p4, global::System.Nullable<int> p6) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
                 throw new global::System.ArgumentNullException("p2");
@@ -1429,6 +2012,14 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(p4));
+            if ((p6.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(p6.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1449,7 +2040,7 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, int p3) {
+        public virtual int Insert(string p1, string p2, int p3, global::System.Nullable<int> p4) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -1463,6 +2054,12 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
+            if ((p4.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1483,7 +2080,7 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, int p3, int p4, string p5, string p6, int p7) {
+        public virtual int Update(string p1, string p2, int p3, global::System.Nullable<int> p4, int p5, string p6, string p7, int p8, global::System.Nullable<int> p10) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -1497,6 +2094,491 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
+            if ((p4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
+            if ((p6 == null)) {
+                throw new global::System.ArgumentNullException("p6");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
+            }
+            if ((p7 == null)) {
+                throw new global::System.ArgumentNullException("p7");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p8));
+            if ((p10.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class reservationsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public reservationsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "reservations";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("DateIn", "DateIn");
+            tableMapping.ColumnMappings.Add("DateOut", "DateOut");
+            tableMapping.ColumnMappings.Add("RoomNumber", "RoomNumber");
+            tableMapping.ColumnMappings.Add("GuestId", "GuestId");
+            tableMapping.ColumnMappings.Add("RoomType", "RoomType");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `reservations` WHERE ((`Id` = @p1) AND (`DateIn` = @p2) AND (`DateOut" +
+                "` = @p3) AND (`RoomNumber` = @p4) AND (`GuestId` = @p5))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateIn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOut";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "GuestId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `reservations` (`DateIn`, `DateOut`, `RoomNumber`, `GuestId`, `RoomTy" +
+                "pe`) VALUES (@p1, @p2, @p3, @p4, @p5)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateIn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOut";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "GuestId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `reservations` SET `DateIn` = @p1, `DateOut` = @p2, `RoomNumber` = @p3, `G" +
+                "uestId` = @p4, `RoomType` = @p5 WHERE ((`Id` = @p6) AND (`DateIn` = @p7) AND (`D" +
+                "ateOut` = @p8) AND (`RoomNumber` = @p9) AND (`GuestId` = @p10))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateIn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOut";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "GuestId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateIn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOut";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "RoomNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "GuestId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::HotelMenager.Properties.Settings.Default.hotelmanagerdatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT `Id`, `DateIn`, `DateOut`, `RoomNumber`, `GuestId`, `RoomType` FROM `reser" +
+                "vations`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(hotelmanagerdatabaseDS.reservationsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual hotelmanagerdatabaseDS.reservationsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            hotelmanagerdatabaseDS.reservationsDataTable dataTable = new hotelmanagerdatabaseDS.reservationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hotelmanagerdatabaseDS.reservationsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(hotelmanagerdatabaseDS dataSet) {
+            return this.Adapter.Update(dataSet, "reservations");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int p1, System.DateTime p2, System.DateTime p3, int p4, int p5) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(p2));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(p3));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(p4));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(p5));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(System.DateTime p1, System.DateTime p2, int p3, int p4, string p5) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(p1));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(p2));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
+            if ((p5 == null)) {
+                throw new global::System.ArgumentNullException("p5");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(p5));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(System.DateTime p1, System.DateTime p2, int p3, int p4, string p5, int p6, System.DateTime p7, System.DateTime p8, int p9, int p10) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(p1));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(p2));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
             if ((p5 == null)) {
                 throw new global::System.ArgumentNullException("p5");
@@ -1504,13 +2586,11 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(p5));
             }
-            if ((p6 == null)) {
-                throw new global::System.ArgumentNullException("p6");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(p7));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(p8));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(p9));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1896,6 +2976,8 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
         
         private guestsTableAdapter _guestsTableAdapter;
         
+        private reservationsTableAdapter _reservationsTableAdapter;
+        
         private roomsTableAdapter _roomsTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -1924,6 +3006,20 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             }
             set {
                 this._guestsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public reservationsTableAdapter reservationsTableAdapter {
+            get {
+                return this._reservationsTableAdapter;
+            }
+            set {
+                this._reservationsTableAdapter = value;
             }
         }
         
@@ -1964,6 +3060,10 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                             && (this._guestsTableAdapter.Connection != null))) {
                     return this._guestsTableAdapter.Connection;
                 }
+                if (((this._reservationsTableAdapter != null) 
+                            && (this._reservationsTableAdapter.Connection != null))) {
+                    return this._reservationsTableAdapter.Connection;
+                }
                 if (((this._roomsTableAdapter != null) 
                             && (this._roomsTableAdapter.Connection != null))) {
                     return this._roomsTableAdapter.Connection;
@@ -1982,6 +3082,9 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
             get {
                 int count = 0;
                 if ((this._guestsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._reservationsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._roomsTableAdapter != null)) {
@@ -2004,6 +3107,15 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._guestsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._reservationsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.reservations.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._reservationsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -2034,6 +3146,14 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._reservationsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.reservations.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._reservationsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._roomsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.rooms.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -2057,6 +3177,14 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._roomsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._reservationsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.reservations.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._reservationsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2112,6 +3240,11 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 throw new global::System.ArgumentException("Dla wszystkich obiektów TableAdapter, którymi zarządza obiekt TableAdapterManager" +
                         ", muszą być używane te same parametry połączenia.");
             }
+            if (((this._reservationsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._reservationsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Dla wszystkich obiektów TableAdapter, którymi zarządza obiekt TableAdapterManager" +
+                        ", muszą być używane te same parametry połączenia.");
+            }
             if (((this._roomsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._roomsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Dla wszystkich obiektów TableAdapter, którymi zarządza obiekt TableAdapterManager" +
@@ -2157,6 +3290,15 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                     if (this._guestsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._guestsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._guestsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._reservationsTableAdapter != null)) {
+                    revertConnections.Add(this._reservationsTableAdapter, this._reservationsTableAdapter.Connection);
+                    this._reservationsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._reservationsTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._reservationsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._reservationsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._reservationsTableAdapter.Adapter);
                     }
                 }
                 if ((this._roomsTableAdapter != null)) {
@@ -2229,6 +3371,10 @@ namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
                 if ((this._guestsTableAdapter != null)) {
                     this._guestsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._guestsTableAdapter]));
                     this._guestsTableAdapter.Transaction = null;
+                }
+                if ((this._reservationsTableAdapter != null)) {
+                    this._reservationsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._reservationsTableAdapter]));
+                    this._reservationsTableAdapter.Transaction = null;
                 }
                 if ((this._roomsTableAdapter != null)) {
                     this._roomsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._roomsTableAdapter]));

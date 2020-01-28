@@ -33,5 +33,10 @@ namespace HotelMenager
             Reservations_Form reservations_Form = new Reservations_Form();
             reservations_Form.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

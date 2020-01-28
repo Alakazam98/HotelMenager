@@ -6,3 +6,10 @@
     {
     }
 }
+
+namespace HotelMenager.hotelmanagerdatabaseDSTableAdapters {
+    
+    
+    public partial class roomsTableAdapter {
+    }
+}

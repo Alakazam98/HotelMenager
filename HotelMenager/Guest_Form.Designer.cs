@@ -162,6 +162,8 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.guestsTableAdapter = this.guestsTableAdapter;
+            this.tableAdapterManager.reservationsTableAdapter = null;
+            this.tableAdapterManager.roomsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = HotelMenager.hotelmanagerdatabaseDSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // hotelmanagerdatabaseDS1
@@ -279,6 +281,7 @@
             this.MinimumSize = new System.Drawing.Size(2278, 1537);
             this.Name = "Guest_Form";
             this.Text = "Guest_Form";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Guest_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hotelmanagerdatabaseDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guestsBindingSource)).EndInit();

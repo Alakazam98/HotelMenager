@@ -104,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reservations_Form.resx">
+      <DependentUpon>Reservations_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rooms_Form.resx">
       <DependentUpon>Rooms_Form.cs</DependentUpon>
     </EmbeddedResource>

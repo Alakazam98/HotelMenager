@@ -30,9 +30,9 @@ namespace HotelMenager
         private void PopulateGuests()
         {
 
-
+            string query = "SELECT a.Id, a.Name, a.Surname, a.Phone, b.RoomNumber FROM guests a LEFT JOIN rooms b ON a.RoomNumber = b.RoomNumber";
             using (Connection = new MySqlConnection(ConnectionString))
-            using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM guests", Connection))
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, Connection))
             {
 
                 DataTable table = new DataTable();
