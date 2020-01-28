@@ -67,10 +67,10 @@
     <Compile Include="Guest_Form.Designer.cs">
       <DependentUpon>Guest_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="hotelmanagerdatabaseDataSet.Designer.cs">
+    <Compile Include="hotelmanagerdatabaseDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>hotelmanagerdatabaseDataSet.xsd</DependentUpon>
+      <DependentUpon>hotelmanagerdatabaseDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,16 +101,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="hotelmanagerdatabaseDataSet.xsc">
-      <DependentUpon>hotelmanagerdatabaseDataSet.xsd</DependentUpon>
+    <None Include="hotelmanagerdatabaseDS.xsc">
+      <DependentUpon>hotelmanagerdatabaseDS.xsd</DependentUpon>
     </None>
-    <None Include="hotelmanagerdatabaseDataSet.xsd">
+    <None Include="hotelmanagerdatabaseDS.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>hotelmanagerdatabaseDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>hotelmanagerdatabaseDS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="hotelmanagerdatabaseDataSet.xss">
-      <DependentUpon>hotelmanagerdatabaseDataSet.xsd</DependentUpon>
+    <None Include="hotelmanagerdatabaseDS.xss">
+      <DependentUpon>hotelmanagerdatabaseDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

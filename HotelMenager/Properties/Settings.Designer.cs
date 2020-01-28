@@ -26,10 +26,21 @@ namespace HotelMenager.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=szymonj1998;database=hotelmanagerdatabase")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;Database=hotelmanagerdatabase;Uid=szymon;Pwd=szymonj1998;")]
         public string hotelmanagerdatabaseConnectionString {
             get {
                 return ((string)(this["hotelmanagerdatabaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=szymon;password=szymonj1998;database=hotelmanagerdatabas" +
+            "e")]
+        public string hotelmanagerdatabaseConnectionString1 {
+            get {
+                return ((string)(this["hotelmanagerdatabaseConnectionString1"]));
             }
         }
     }
