@@ -67,6 +67,9 @@
     <Compile Include="Guest_Form.Designer.cs">
       <DependentUpon>Guest_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="hotelmanagerdatabaseDS.cs">
+      <DependentUpon>hotelmanagerdatabaseDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="hotelmanagerdatabaseDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rooms_Form.resx">
+      <DependentUpon>Rooms_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="hotelmanagerdatabaseDS.xsc">
       <DependentUpon>hotelmanagerdatabaseDS.xsd</DependentUpon>
     </None>
