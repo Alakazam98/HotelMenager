@@ -35,15 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDaysCount = new System.Windows.Forms.Label();
             this.txtDaysAmount = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBxSurname = new System.Windows.Forms.TextBox();
             this.lblSurname = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBxPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.btnAddReservation = new System.Windows.Forms.Button();
             this.lblRoomType = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbBxRoomSize = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewReservations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,13 +119,13 @@
             this.txtDaysAmount.Size = new System.Drawing.Size(475, 53);
             this.txtDaysAmount.TabIndex = 7;
             // 
-            // textBox1
+            // txtBxName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(32, 537);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(475, 53);
-            this.textBox1.TabIndex = 9;
+            this.txtBxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtBxName.Location = new System.Drawing.Point(32, 537);
+            this.txtBxName.Name = "txtBxName";
+            this.txtBxName.Size = new System.Drawing.Size(475, 53);
+            this.txtBxName.TabIndex = 9;
             // 
             // lblName
             // 
@@ -137,13 +137,13 @@
             this.lblName.TabIndex = 8;
             this.lblName.Text = "Name:";
             // 
-            // textBox2
+            // txtBxSurname
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2.Location = new System.Drawing.Point(32, 695);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(475, 53);
-            this.textBox2.TabIndex = 11;
+            this.txtBxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtBxSurname.Location = new System.Drawing.Point(32, 695);
+            this.txtBxSurname.Name = "txtBxSurname";
+            this.txtBxSurname.Size = new System.Drawing.Size(475, 53);
+            this.txtBxSurname.TabIndex = 11;
             // 
             // lblSurname
             // 
@@ -155,13 +155,13 @@
             this.lblSurname.TabIndex = 10;
             this.lblSurname.Text = "Surname:";
             // 
-            // textBox3
+            // txtBxPhone
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox3.Location = new System.Drawing.Point(32, 850);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(475, 53);
-            this.textBox3.TabIndex = 13;
+            this.txtBxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtBxPhone.Location = new System.Drawing.Point(32, 850);
+            this.txtBxPhone.Name = "txtBxPhone";
+            this.txtBxPhone.Size = new System.Drawing.Size(475, 53);
+            this.txtBxPhone.TabIndex = 13;
             // 
             // lblPhone
             // 
@@ -194,33 +194,33 @@
             this.lblRoomType.TabIndex = 15;
             this.lblRoomType.Text = "Room size:";
             // 
-            // comboBox1
+            // cmbBxRoomSize
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbBxRoomSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbBxRoomSize.FormattingEnabled = true;
+            this.cmbBxRoomSize.Items.AddRange(new object[] {
             "single",
             "double",
             "triple",
             "quadruple"});
-            this.comboBox1.Location = new System.Drawing.Point(32, 991);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(475, 54);
-            this.comboBox1.TabIndex = 16;
+            this.cmbBxRoomSize.Location = new System.Drawing.Point(32, 991);
+            this.cmbBxRoomSize.Name = "cmbBxRoomSize";
+            this.cmbBxRoomSize.Size = new System.Drawing.Size(475, 54);
+            this.cmbBxRoomSize.TabIndex = 16;
             // 
             // Reservations_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2081, 1193);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbBxRoomSize);
             this.Controls.Add(this.lblRoomType);
             this.Controls.Add(this.btnAddReservation);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBxPhone);
             this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBxSurname);
             this.Controls.Add(this.lblSurname);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBxName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtDaysAmount);
             this.Controls.Add(this.lblDaysCount);
@@ -248,14 +248,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDaysCount;
         private System.Windows.Forms.TextBox txtDaysAmount;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBxName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBxSurname;
         private System.Windows.Forms.Label lblSurname;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBxPhone;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Button btnAddReservation;
         private System.Windows.Forms.Label lblRoomType;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbBxRoomSize;
     }
 }

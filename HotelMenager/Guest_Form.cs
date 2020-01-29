@@ -19,6 +19,8 @@ namespace HotelMenager
 
         public string ConnectionString { get; set; }
 
+        public int GuestsId { get; set; }
+
 
         public Guest_Form()
         {
@@ -38,7 +40,7 @@ namespace HotelMenager
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 guestsDataGridView.DataSource = table;
-
+                GuestsId = guestsDataGridView.RowCount;
 
             }
         }
