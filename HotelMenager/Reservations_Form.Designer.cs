@@ -44,6 +44,11 @@
             this.btnAddReservation = new System.Windows.Forms.Button();
             this.lblRoomType = new System.Windows.Forms.Label();
             this.cmbBxRoomSize = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtbxGuestId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblRoomNumber = new System.Windows.Forms.Label();
+            this.txtbxRoomNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewReservations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +76,7 @@
             // 
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl.Location = new System.Drawing.Point(24, 34);
+            this.lbl.Location = new System.Drawing.Point(24, 9);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(151, 46);
             this.lbl.TabIndex = 1;
@@ -79,23 +84,24 @@
             // 
             // dtTmPickArrival
             // 
-            this.dtTmPickArrival.Location = new System.Drawing.Point(32, 101);
+            this.dtTmPickArrival.Location = new System.Drawing.Point(32, 76);
             this.dtTmPickArrival.Name = "dtTmPickArrival";
             this.dtTmPickArrival.Size = new System.Drawing.Size(475, 38);
             this.dtTmPickArrival.TabIndex = 3;
             // 
             // dtTmPickDeparture
             // 
-            this.dtTmPickDeparture.Location = new System.Drawing.Point(32, 247);
+            this.dtTmPickDeparture.Location = new System.Drawing.Point(32, 184);
             this.dtTmPickDeparture.Name = "dtTmPickDeparture";
             this.dtTmPickDeparture.Size = new System.Drawing.Size(475, 38);
             this.dtTmPickDeparture.TabIndex = 5;
+            this.dtTmPickDeparture.ValueChanged += new System.EventHandler(this.dtTmPickDeparture_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(24, 180);
+            this.label1.Location = new System.Drawing.Point(24, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(217, 46);
             this.label1.TabIndex = 4;
@@ -105,7 +111,7 @@
             // 
             this.lblDaysCount.AutoSize = true;
             this.lblDaysCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDaysCount.Location = new System.Drawing.Point(24, 304);
+            this.lblDaysCount.Location = new System.Drawing.Point(24, 235);
             this.lblDaysCount.Name = "lblDaysCount";
             this.lblDaysCount.Size = new System.Drawing.Size(278, 46);
             this.lblDaysCount.TabIndex = 6;
@@ -114,7 +120,7 @@
             // txtDaysAmount
             // 
             this.txtDaysAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtDaysAmount.Location = new System.Drawing.Point(32, 383);
+            this.txtDaysAmount.Location = new System.Drawing.Point(32, 294);
             this.txtDaysAmount.Name = "txtDaysAmount";
             this.txtDaysAmount.Size = new System.Drawing.Size(475, 53);
             this.txtDaysAmount.TabIndex = 7;
@@ -131,7 +137,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblName.Location = new System.Drawing.Point(24, 458);
+            this.lblName.Location = new System.Drawing.Point(24, 479);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(142, 46);
             this.lblName.TabIndex = 8;
@@ -140,7 +146,7 @@
             // txtBxSurname
             // 
             this.txtBxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtBxSurname.Location = new System.Drawing.Point(32, 695);
+            this.txtBxSurname.Location = new System.Drawing.Point(32, 655);
             this.txtBxSurname.Name = "txtBxSurname";
             this.txtBxSurname.Size = new System.Drawing.Size(475, 53);
             this.txtBxSurname.TabIndex = 11;
@@ -149,7 +155,7 @@
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSurname.Location = new System.Drawing.Point(24, 616);
+            this.lblSurname.Location = new System.Drawing.Point(24, 606);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(200, 46);
             this.lblSurname.TabIndex = 10;
@@ -158,7 +164,7 @@
             // txtBxPhone
             // 
             this.txtBxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtBxPhone.Location = new System.Drawing.Point(32, 850);
+            this.txtBxPhone.Location = new System.Drawing.Point(32, 770);
             this.txtBxPhone.Name = "txtBxPhone";
             this.txtBxPhone.Size = new System.Drawing.Size(475, 53);
             this.txtBxPhone.TabIndex = 13;
@@ -167,7 +173,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPhone.Location = new System.Drawing.Point(24, 771);
+            this.lblPhone.Location = new System.Drawing.Point(24, 721);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(153, 46);
             this.lblPhone.TabIndex = 12;
@@ -176,7 +182,7 @@
             // btnAddReservation
             // 
             this.btnAddReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddReservation.Location = new System.Drawing.Point(32, 1098);
+            this.btnAddReservation.Location = new System.Drawing.Point(524, 1078);
             this.btnAddReservation.Name = "btnAddReservation";
             this.btnAddReservation.Size = new System.Drawing.Size(475, 60);
             this.btnAddReservation.TabIndex = 14;
@@ -188,7 +194,7 @@
             // 
             this.lblRoomType.AutoSize = true;
             this.lblRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRoomType.Location = new System.Drawing.Point(24, 931);
+            this.lblRoomType.Location = new System.Drawing.Point(24, 840);
             this.lblRoomType.Name = "lblRoomType";
             this.lblRoomType.Size = new System.Drawing.Size(231, 46);
             this.lblRoomType.TabIndex = 15;
@@ -203,16 +209,68 @@
             "double",
             "triple",
             "quadruple"});
-            this.cmbBxRoomSize.Location = new System.Drawing.Point(32, 991);
+            this.cmbBxRoomSize.Location = new System.Drawing.Point(32, 913);
             this.cmbBxRoomSize.Name = "cmbBxRoomSize";
             this.cmbBxRoomSize.Size = new System.Drawing.Size(475, 54);
             this.cmbBxRoomSize.TabIndex = 16;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDelete.Location = new System.Drawing.Point(1074, 1078);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(475, 60);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // txtbxGuestId
+            // 
+            this.txtbxGuestId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtbxGuestId.Location = new System.Drawing.Point(32, 402);
+            this.txtbxGuestId.Name = "txtbxGuestId";
+            this.txtbxGuestId.Size = new System.Drawing.Size(475, 53);
+            this.txtbxGuestId.TabIndex = 19;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblId.Location = new System.Drawing.Point(24, 348);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(177, 46);
+            this.lblId.TabIndex = 18;
+            this.lblId.Text = "GuestId:";
+            // 
+            // lblRoomNumber
+            // 
+            this.lblRoomNumber.AutoSize = true;
+            this.lblRoomNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRoomNumber.Location = new System.Drawing.Point(24, 999);
+            this.lblRoomNumber.Name = "lblRoomNumber";
+            this.lblRoomNumber.Size = new System.Drawing.Size(296, 46);
+            this.lblRoomNumber.TabIndex = 20;
+            this.lblRoomNumber.Text = "Room number:";
+            // 
+            // txtbxRoomNumber
+            // 
+            this.txtbxRoomNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtbxRoomNumber.Location = new System.Drawing.Point(32, 1078);
+            this.txtbxRoomNumber.Name = "txtbxRoomNumber";
+            this.txtbxRoomNumber.Size = new System.Drawing.Size(475, 53);
+            this.txtbxRoomNumber.TabIndex = 21;
             // 
             // Reservations_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2081, 1193);
+            this.Controls.Add(this.txtbxRoomNumber);
+            this.Controls.Add(this.lblRoomNumber);
+            this.Controls.Add(this.txtbxGuestId);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.cmbBxRoomSize);
             this.Controls.Add(this.lblRoomType);
             this.Controls.Add(this.btnAddReservation);
@@ -257,5 +315,10 @@
         private System.Windows.Forms.Button btnAddReservation;
         private System.Windows.Forms.Label lblRoomType;
         private System.Windows.Forms.ComboBox cmbBxRoomSize;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox txtbxGuestId;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label lblRoomNumber;
+        private System.Windows.Forms.TextBox txtbxRoomNumber;
     }
 }

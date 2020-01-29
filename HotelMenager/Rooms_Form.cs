@@ -18,10 +18,7 @@ namespace HotelMenager
 
         public string ConnectionString { get; set; }
 
-        public int FreeSingle { get; set; }
-        public int FreeDouble { get; set; }
-        public int FreeTriple { get; set; }
-        public int FreeQuadruple { get; set; }
+        
 
         public Rooms_Form()
         {
@@ -47,26 +44,7 @@ namespace HotelMenager
                 lstbxAvailableRooms.DataSource = table;
                 lstbxAvailableRooms.DisplayMember = "RoomNumber";
                 lstbxAvailableRooms.ValueMember = "RoomNumber";
-                switch (cmboxSize.SelectedIndex)
-                {
-                    case 0:
-                        FreeSingle = lstbxAvailableRooms.Items.IndexOf(0);
-                        break;
-                    case 1:
-                        FreeDouble = lstbxAvailableRooms.Items.IndexOf(0);
-
-                        break;
-                    case 2:
-                        FreeTriple = lstbxAvailableRooms.Items.IndexOf(0);
-
-                        break;
-                    case 3:
-                        FreeQuadruple = lstbxAvailableRooms.Items.IndexOf(0);
-
-                        break;
-                    default:
-                        break;
-                }
+                
             }
         }
 
@@ -92,21 +70,17 @@ namespace HotelMenager
             switch(cmboxSize.SelectedIndex)
             {
                 case 0: query = "SELECT * FROM rooms WHERE Size = 1 AND Availability = \"YES\"";
-                    FreeSingle = lstbxAvailableRooms.Items.IndexOf(0);
                 break;
                 case 1:
                 query = "SELECT * FROM rooms WHERE Size = 2 AND Availability = \"YES\"";
-                    FreeDouble = lstbxAvailableRooms.Items.IndexOf(0);
 
                     break;
                 case 2:
                 query = "SELECT * FROM rooms WHERE Size = 3 AND Availability = \"YES\"";
-                    FreeTriple = lstbxAvailableRooms.Items.IndexOf(0);
 
                     break;
                 case 3:
                 query = "SELECT * FROM rooms WHERE Size = 4 AND Availability = \"YES\"";
-                    FreeQuadruple = lstbxAvailableRooms.Items.IndexOf(0);
 
                     break;
                 default:
